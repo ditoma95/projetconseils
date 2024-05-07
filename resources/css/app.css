@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+/* .notification-tab > .active {
+    @apply text-blue-500 border-b-blue-500 hover:text-blue-500;
+}
+.order-tab > .active {
+    @apply text-white bg-blue-500 hover:text-white;
+}
+.main.active {
+    @apply md:w-full md:ml-0;
+} */
+
+.dimitrios{
+    background: url('/public/img/cov.jpg') no-repeat center/cover fixed;
+}
+
+
+.mitrio{
+    background-color: rgba(0, 0, 0, 0.753);
+}
+
+/* .authoma, .bars{
+    background: url('/public/img/ims.jpg') no-repeat center/cover fixed;
+
+} */
+
+.bt{
+    box-shadow: 5px 4px 15px black;
+    transition: 0.5s;
+}
+
+.bt:active{
+    transform: scale(1.3);
+}
+
