@@ -16,6 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->longText("contenu");
             $table->string("context",50);
+            $table->unsignedInteger('user_id')->unique();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

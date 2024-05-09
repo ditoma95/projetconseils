@@ -4,31 +4,29 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Notifications\Notifiable;
-class Mentor extends Model
+
+class Problem extends Model
 {
     use HasFactory;
-    use HasRoles;
-    use Notifiable;
-    
-    
+
+    protected  $table = "problemes";
+
     protected $fillable = [
-        'mentor_id',
-        'permis_image',
+        "contenu","context","user_id"
     ];
 
-    protected $guard_name = 'web';
 
-
-    public function user(){
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
-
 
     public function conseils(): HasMany
     {
         return $this->hasMany(Conseil::class);
     }
+
+    
 }

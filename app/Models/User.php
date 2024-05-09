@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -62,10 +63,16 @@ class User extends Authenticatable
     ];
 
     public function conducteur(){
-        return $this->hasOne(Conducteur::class, 'conducteur_id');
+        return $this->hasOne(Mentor::class, 'mentor_id');
     }
 
     public function utilisateur(){
         return $this->hasOne(Utilisateur::class, 'utilisateur_id');
+    }
+
+
+    public function problemes(): HasMany
+    {
+        return $this->hasMany(Problem::class,"user_id");
     }
 }

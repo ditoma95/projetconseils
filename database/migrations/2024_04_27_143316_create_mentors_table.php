@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('mentors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('permis_image', 2048)->nullable();
-            $table->unsignedInteger('mentor_id')->unique();
-            $table->foreign('mentor_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedInteger('user_id')->unique();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
