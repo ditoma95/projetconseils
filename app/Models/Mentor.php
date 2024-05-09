@@ -14,7 +14,7 @@ class Mentor extends Model
     
     
     protected $fillable = [
-        'conducteur_id',
+        'mentor_id',
         'permis_image',
     ];
 

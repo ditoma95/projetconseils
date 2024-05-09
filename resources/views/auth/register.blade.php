@@ -16,12 +16,6 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="surname" value="{{ __('Surname') }}" />
-                <x-input id="surname" class="block w-full mt-1" type="text" name="surname" :value="old('surname')" required autofocus autocomplete="surname" />
-            </div>
-
-
-            <div class="mt-4">
                 <x-label for="profession" value="{{ __('profession') }}" />
                 <x-input id="profession" class="block w-full mt-1" type="text" name="profession" :value="old('profession')" required autofocus autocomplete="profession" />
             </div>
@@ -51,8 +45,8 @@
                 <x-label for="type" value="{{ __('User type') }}" />
                 <select name="type" id="type" class="block w-full mt-1 text-white bg-transparent rounded-lg hover:text-white hover:bg-transparent">
                     <option  value="" selected disabled hidden> {{ __('choisir type utilisateur')  }} </option>
-                    <option class="bg-black"  value="conducteur" id="conduc">Conducteur</option>
-                    <option class="bg-black" value="passager" id="passa">Passager</option>
+                    <option class="bg-black"  value="mentor" id="conduc">Mentor</option>
+                    <option class="bg-black" value="utilisateur" id="passa">Utilisateur</option>
                 </select>
             </div>
 
@@ -113,16 +107,16 @@
 
     <script>
         let selection = document.getElementById('type');
-        let conducteur = document.getElementById('conduc');
-        let passager = document.getElementById('passa');
+        let mentor = document.getElementById('conduc');
+        let utilisateur = document.getElementById('passa');
         let conductorios = document.querySelector('.conductorio');
 
         selection.addEventListener('click', (e)=>{
             let response = e.target.value;
-            if (response === 'conducteur') {
+            if (response === 'mentor') {
                 
                 conductorios.classList.remove('hidden');
-            }else if (response === 'passager') {
+            }else if (response === 'utilisateur') {
                 conductorios.classList.add('hidden');
             }
         })

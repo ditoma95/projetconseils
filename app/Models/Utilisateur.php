@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 
-class Passager extends Model
+class Utilisateur extends Model
 {
     use Notifiable;
     use HasFactory;
     use HasRoles;
 
     protected $fillable = [
-        'passager_id',
+        'utilisateur_id',
     ];
 
     public function user(){

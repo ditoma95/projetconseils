@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreConducteurRequest;
 use App\Http\Requests\UpdateConducteurRequest;
-use App\Models\Conducteur;
+use App\Models\Mentor;
 use Illuminate\Http\Request;
 
-class ConducteurController extends Controller
+class MentorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,7 +36,7 @@ class ConducteurController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Conducteur $conducteur, Request $request)
+    public function show(Mentor $conducteur, Request $request)
     {
 
 
@@ -46,7 +46,7 @@ class ConducteurController extends Controller
             $permisImagePath = null;
         }
 
-        $conducteur = new Conducteur();
+        $conducteur = new Mentor();
         $conducteur->user_id = $request->user()->id;
         $conducteur->permis_image = $permisImagePath;
         $conducteur->save();
@@ -57,7 +57,7 @@ class ConducteurController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Conducteur $conducteur)
+    public function edit(Mentor $conducteur)
     {
         //
     }
@@ -65,7 +65,7 @@ class ConducteurController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateConducteurRequest $request, Conducteur $conducteur)
+    public function update(UpdateConducteurRequest $request, Mentor $conducteur)
     {
         //
     }
@@ -73,7 +73,7 @@ class ConducteurController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Conducteur $conducteur)
+    public function destroy(Mentor $conducteur)
     {
         //
     }
