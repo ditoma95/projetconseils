@@ -28,7 +28,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', 'surname', 'profession', 'email', 'password', 'google_id','type', 'telephone',
+        'name','profession', 'email', 'password', 'google_id','type', 'telephone',
     ];
 
     /**
@@ -65,7 +65,7 @@ class User extends Authenticatable
         return $this->hasOne(Conducteur::class, 'conducteur_id');
     }
 
-    public function passager(){
-        return $this->hasOne(Passager::class, 'passager_id');
+    public function utilisateur(){
+        return $this->hasOne(Utilisateur::class, 'utilisateur_id');
     }
 }

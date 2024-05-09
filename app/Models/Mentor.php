@@ -6,16 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
-
-class Passager extends Model
+class Mentor extends Model
 {
-    use Notifiable;
     use HasFactory;
     use HasRoles;
-
+    use Notifiable;
+    
+    
     protected $fillable = [
-        'passager_id',
+        'mentor_id',
+        'permis_image',
     ];
+
+    protected $guard_name = 'web';
+
 
     public function user(){
         return $this->belongsTo(User::class);

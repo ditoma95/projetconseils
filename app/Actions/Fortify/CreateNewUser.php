@@ -3,8 +3,8 @@
 namespace App\Actions\Fortify;
 
 use App\Models\User;
-use App\Models\Conducteur;
-use App\Models\Passager;
+use App\Models\Mentor;
+use App\Models\Utilisateur;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -25,19 +25,17 @@ class CreateNewUser implements CreatesNewUsers
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
             'profession' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'telephone' => ['required', 'string', 'max:255'],
-            'type' => ['required', 'string', 'in:conducteur,passager'],
+            'type' => ['required', 'string', 'in:mentor,utilisateur'],
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
         return DB::transaction(function () use ($input) {
             $user = User::create([
                 'name' => $input['name'],
-                'surname' => $input['surname'],
                 'profession' => $input['profession'],
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),
@@ -45,16 +43,16 @@ class CreateNewUser implements CreatesNewUsers
                 'type' => $input['type'],
             ]);
                 
-            if ($input['type'] === 'conducteur') {
-                Conducteur::create([
-                    'conducteur_id' => $user->id,
+            if ($input['type'] === 'mentor') {
+                Mentor::create([
+                    'mentor_id' => $user->id,
                     'permis_image' => $input['permis_image'],
                 ]);
                 $user->assignRole('admin');
 
-            } else if ($input['type'] === 'passager') {
-                Passager::create([
-                    'passager_id' => $user->id,
+            } else if ($input['type'] === 'utilisateur') {
+                Utilisateur::create([
+                    'utilisateur_id' => $user->id,
                 ]);
                 $user->assignRole('client');
             }
