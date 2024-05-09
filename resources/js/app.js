@@ -143,3 +143,27 @@ var chart_2 = new Chart(
     document.getElementById('chart_2'),
     config_2
 );
+
+
+
+
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("openModalBtn");
+var span = document.getElementsByClassName("close")[0];
+
+// Lorsque l'utilisateur clique sur le bouton, ouvrez la modale
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// Lorsque l'utilisateur clique sur <span> (x), fermez la modale
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Lorsque l'utilisateur clique en dehors de la modale, fermez-la
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

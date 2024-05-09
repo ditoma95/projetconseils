@@ -14,7 +14,10 @@ class MentorController extends Controller
      */
     public function index()
     {
-        //
+
+        $mentor = Mentor::where('user_id', 1)->first();
+
+        return view("mentors.views_troubles");
     }
 
     /**

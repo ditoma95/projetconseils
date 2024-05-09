@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('problemes', function (Blueprint $table) {
+        Schema::create('mentors_problemes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->longText("contenu");
-            $table->string("context",50);
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->unsignedInteger('mentor_id');
+            $table->unsignedInteger('problem_id');
+            $table->foreign('problem_id')->references('id')->on('problemes')->onDelete('cascade');
+            $table->foreign('mentor_id')->references('id')->on('mentors')->onDelete('cascade');
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('problemes');
+        Schema::dropIfExists('mentors_problemes');
     }
 };

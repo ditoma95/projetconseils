@@ -51,7 +51,7 @@
                     </a>
                     <!-- end::Menu link -->
 
-                    <p class="px-6 mt-10 mb-2 text-xs text-gray-600 uppercase">Administration</p>
+                    <p class="px-6 mt-5 mb-2 text-xs text-gray-600 uppercase">Administration</p>
 
                     <!-- start::Menu link -->
                     <div x-data="{ linkHover: false, linkActive: false }" >
@@ -116,8 +116,128 @@
                     <!-- end::Menu link -->
 
                     <!-- start::Menu link -->
-                    
+                    <p class="px-6 mt-5 mb-2 text-xs text-gray-600 uppercase">Principales</p>
+                    <div x-data="{ linkHover: false, linkActive: false }" >
+                        <div
+                            @mouseover = "linkHover = true"
+                            @mouseleave = "linkHover = false"
+                            @click = "linkActive = !linkActive"
+                            class="flex items-center justify-between px-6 py-3 text-gray-400 transition duration-200 cursor-pointer hover:text-gray-100 hover:bg-black hover:bg-opacity-30"
+                            :class=" linkActive ? 'bg-black bg-opacity-30 text-gray-100' : ''" >
 
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition duration-200" :class=" linkHover || linkActive ? 'text-gray-100' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                                </svg>
+                                <span class="ml-3">Mes problèmes</span>
+                            </div>
+                            <svg class="w-3 h-3 transition duration-300" :class="linkActive ? 'rotate-90' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+
+
+                        <!-- start::Submenu -->
+                        <ul  x-show="linkActive" x-cloak  x-collapse.duration.300ms class="text-gray-400" >
+                            <!-- start::Submenu link -->
+                                @if(auth()->user()->hasRole('super-admin'))
+                                    <li class="py-2 pl-10 pr-6 transition duration-200 cursor-pointer hover:bg-black hover:bg-opacity-30 hover:text-gray-100">
+                                        <a  href="{{ route('problem.index') }}"  class="flex items-center" >
+                                            <span class="mr-2 text-sm">&bull;</span>
+                                            <span class="overflow-ellipsis">Liste </span>
+                                        </a>
+                                    </li>
+                                @endif
+                                <!-- end::Submenu link -->
+
+
+
+                                {{-- <!-- start::Submenu link -->
+                                @if(auth()->user()->hasRole('super-admin'))
+                                    <li class="py-2 pl-10 pr-6 transition duration-200 cursor-pointer hover:bg-black hover:bg-opacity-30 hover:text-gray-100">
+                                        <a  href="{{ route('permissions.index') }}" class="flex items-center" >
+                                            <span class="mr-2 text-sm">&bull;</span>
+                                            <span class="overflow-ellipsis">Permissions</span>
+                                        </a>
+                                    </li>
+                                @endif
+                                <!-- end::Submenu link -->
+
+                                <!-- start::Submenu link -->
+                                @if(auth()->user()->hasRole('super-admin|admin'))
+                                    <li class="py-2 pl-10 pr-6 transition duration-200 cursor-pointer hover:bg-black hover:bg-opacity-30 hover:text-gray-100">
+                                        <a  href="{{ route('users.index') }}" class="flex items-center" >
+                                            <span class="mr-2 text-sm">&bull;</span>
+                                            <span class="overflow-ellipsis">Users</span>
+                                        </a>
+                                    </li>
+                                @endif
+                                <!-- end::Submenu link --> --}}
+                            </ul>
+                        {{-- @endif --}}
+
+                        <!-- end::Submenu -->
+                    </div>
+
+                     <!-- start::Menu link -->
+                     <p class="px-6 mt-5 mb-2 text-xs text-gray-600 uppercase">Mentors</p>
+                     <div x-data="{ linkHover: false, linkActive: false }" >
+                         <div
+                             @mouseover = "linkHover = true"
+                             @mouseleave = "linkHover = false"
+                             @click = "linkActive = !linkActive"
+                             class="flex items-center justify-between px-6 py-3 text-gray-400 transition duration-200 cursor-pointer hover:text-gray-100 hover:bg-black hover:bg-opacity-30"
+                             :class=" linkActive ? 'bg-black bg-opacity-30 text-gray-100' : ''" >
+ 
+                             <div class="flex items-center">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition duration-200" :class=" linkHover || linkActive ? 'text-gray-100' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                                 </svg>
+                                 <span class="ml-3">Problèmes</span>
+                             </div>
+                             <svg class="w-3 h-3 transition duration-300" :class="linkActive ? 'rotate-90' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                         </div>
+ 
+ 
+                         <!-- start::Submenu -->
+                         <ul  x-show="linkActive" x-cloak  x-collapse.duration.300ms class="text-gray-400" >
+                             <!-- start::Submenu link -->
+                                 @if(auth()->user()->hasRole('super-admin'))
+                                     <li class="py-2 pl-10 pr-6 transition duration-200 cursor-pointer hover:bg-black hover:bg-opacity-30 hover:text-gray-100">
+                                         <a  href="{{ route('mentor.problem.index') }}"  class="flex items-center" >
+                                             <span class="mr-2 text-sm">&bull;</span>
+                                             <span class="overflow-ellipsis">Actualités </span>
+                                         </a>
+                                     </li>
+                                 @endif
+                                 <!-- end::Submenu link -->
+ 
+ 
+ 
+                                 {{-- <!-- start::Submenu link -->
+                                 @if(auth()->user()->hasRole('super-admin'))
+                                     <li class="py-2 pl-10 pr-6 transition duration-200 cursor-pointer hover:bg-black hover:bg-opacity-30 hover:text-gray-100">
+                                         <a  href="{{ route('permissions.index') }}" class="flex items-center" >
+                                             <span class="mr-2 text-sm">&bull;</span>
+                                             <span class="overflow-ellipsis">Permissions</span>
+                                         </a>
+                                     </li>
+                                 @endif
+                                 <!-- end::Submenu link -->
+ 
+                                 <!-- start::Submenu link -->
+                                 @if(auth()->user()->hasRole('super-admin|admin'))
+                                     <li class="py-2 pl-10 pr-6 transition duration-200 cursor-pointer hover:bg-black hover:bg-opacity-30 hover:text-gray-100">
+                                         <a  href="{{ route('users.index') }}" class="flex items-center" >
+                                             <span class="mr-2 text-sm">&bull;</span>
+                                             <span class="overflow-ellipsis">Users</span>
+                                         </a>
+                                     </li>
+                                 @endif
+                                 <!-- end::Submenu link --> --}}
+                             </ul>
+                         {{-- @endif --}}
+ 
+                         <!-- end::Submenu -->
+                     </div>
 
 {{-- ---------------------------------------------------------------pages-------------------------------------------------------------------------------------------  --}}
                     <p class="px-6 mt-10 mb-2 text-xs text-gray-600 uppercase">Déconnexion</p>
@@ -515,6 +635,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="../../js/jq.js"></script>
         <script src="../../js/script.js"></script>
+       
 
         @stack('modals')
         @livewireScripts

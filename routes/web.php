@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Spatie\Permission\Middlewares\RoleMiddleware;
 use App\Http\Controllers\GoogleLoginController;
-
+use App\Http\Controllers\MentorController;
+use App\Http\Controllers\ProblemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,7 +75,12 @@ Route::group(['middleware' => ['role:super-admin|admin']], function () {
 // GoogleLoginController redirect and callback urls
 Route::get('/login/google', [GoogleLoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('/login/google/callback', [GoogleLoginController::class, 'handleGoogleCallback']);
+Route::get('/prob/index', [ProblemController::class, 'index'])->name('problem.index');
+Route::post('/prob/index', [ProblemController::class, 'store'])->name('problem.store');
+Route::get('/prob/conseil/{id}', [ProblemController::class, 'show'])->name('problem.show');
 
 
 
+// Mentors routes
+Route::get('/problems/all', [MentorController::class, 'index'])->name('mentor.problem.index');
 

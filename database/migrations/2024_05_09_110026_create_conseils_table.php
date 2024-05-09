@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('conseils', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedInteger('mentor_id')->unique();
-            $table->unsignedInteger('problem_id')->unique();
+            $table->unsignedInteger('mentor_id');
+            $table->unsignedInteger('problem_id');
             $table->foreign('problem_id')->references('id')->on('problemes')->onDelete('cascade');
             $table->foreign('mentor_id')->references('id')->on('mentors')->onDelete('cascade');
             $table->longText("reponse");

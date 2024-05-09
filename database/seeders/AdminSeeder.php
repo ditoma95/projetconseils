@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Mentor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
@@ -28,7 +29,12 @@ class AdminSeeder extends Seeder
         ]);
         $user->assignRole('super-admin');
 
-        
+        $mentor = Mentor::create([
+            'user_id' => $user->id,
+            'annee_experience' => 15,
+            'domaine_experience' => 'informatique',
+            'biographie' => 'djkfjkd djklf dlfkj',
+            ]);
             
     }
 }

@@ -15,8 +15,11 @@ class Mentor extends Model
     
     
     protected $fillable = [
-        'mentor_id',
-        'permis_image',
+        
+        'annee_experience',
+        "domaine_experience",
+        "biographie",
+        "user_id"
     ];
 
     protected $guard_name = 'web';
@@ -30,5 +33,10 @@ class Mentor extends Model
     public function conseils(): HasMany
     {
         return $this->hasMany(Conseil::class);
+    }
+
+    public function problems(): HasMany
+    {
+        return $this->hasMany(MentorProblem::class,"mentor_id");
     }
 }

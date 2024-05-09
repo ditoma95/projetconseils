@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('mentors', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('permis_image', 2048)->nullable();
-            $table->unsignedInteger('user_id')->unique();
+            $table->integer("annee_experience");
+            $table->enum("domaine_experience", ["informatique", "marketing", "finance", "communication"]);
+            $table->longText("biographie");
+            $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
