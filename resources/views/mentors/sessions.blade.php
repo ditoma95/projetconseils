@@ -180,9 +180,26 @@
                             <td class="px-6 py-4 text-right flex text-center">
                                 <a href="#"
                                     class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Edit</a>
-                                    <a href="" class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900">Publier</a>
+                                    @if (!$session->is_publisher)
+                                    <form action="{{route("article.publisher")}}" method="POST">
+                                        @csrf
+                                        @method("PUT")
+                                        <input type="hidden" name="id" value="{{$session->id}}">
+                                        <button type="submit" class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900">Publier</button>
+                                    </form>
+                                    @endif
 
-                                    <a href=""class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Rétirer</a>
+
+                                    @if ($session->is_publisher)
+                                    <form action="{{route("article.publisher")}}" method="POST">
+                                        @csrf
+                                        @method("PUT")
+                                        <input type="hidden" name="id_retirer" value="{{$session->id}}">
+                                        <button type="submit" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Rétirer</button>
+                                    </form>
+                                    @endif
+                                    
+
                             </td>
                         </tr>
                     @empty

@@ -90,4 +90,5 @@ Route::group(['middleware' => ['role:super-admin|admin|mentor']], function () {
     Route::post('/problems/all', [ConseilController::class, 'store'])->name('mentor.problem.store');
     Route::get('/mentor/session', [SessionController::class, 'index'])->name('mentor.sessions.index');
     Route::post('/mentor/session', [SessionController::class, 'store'])->name('mentor.sessions.store');
+    Route::put('/article/publish', [SessionController::class, 'publish'])->name('article.publisher');
 });

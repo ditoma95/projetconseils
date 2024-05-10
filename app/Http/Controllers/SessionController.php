@@ -44,4 +44,26 @@ class SessionController extends Controller
 
         return back()->with('success', 'Session created successfully');
     }
+
+
+    public function publish(Request $request){
+
+        if ($request->id_retirer) {
+            # code...
+            $article = SessionMentorat::find($request->id_retirer);
+            $article->is_publisher = false;
+            $article->save();
+
+        }
+
+        if ($request->id) {
+            # code...
+            $article = SessionMentorat::find($request->id);
+            $article->is_publisher = true;
+            $article->save();
+        }
+       
+
+        return back()->with("success","Article publié avec success !");
+    }
 }
