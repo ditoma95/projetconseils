@@ -1,9 +1,6 @@
 <x-app-layout>
 
-
-    <section>
-
-
+    <section class="border p-2 border-gray-200 rounded-lg shadow">
         @session('success')
             <div id="toast-success"
                 class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 float-right"
@@ -40,6 +37,12 @@
             type="button">
             Ajouter un problème
         </button>
+    </section>
+
+    <section >
+
+
+
 
         <!-- Main modal -->
         <div id="authentication-modal" tabindex="-1" aria-hidden="true"
@@ -127,7 +130,7 @@
 
 
     </section>
-    <main>
+    <main style="width: 80%;margin:auto;margin-top:50px; height:100vh;" class="border p-2 border-gray-200 rounded-lg shadow">
         <section class="cards">
 
             @foreach ($mes_problems as $problem)

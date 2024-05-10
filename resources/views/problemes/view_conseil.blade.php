@@ -1,5 +1,11 @@
 <x-app-layout>
-    <div class="flex flex-col lg:flex-row">
+
+
+    <section class="border text-lg text-gray-600 fs-2 p-2 border-gray-200 mb-5 rounded-lg shadow">
+      <h3>Toutes les réponses à mes questions</h3>
+    </section>
+
+    <div class="flex flex-col lg:flex-row" style="height: 100vh">
 
         <div class="lg:w-1/2">
             <!-- Première colonne avec le formulaire -->
