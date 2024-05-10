@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
         //
         $user = User::create([
             'name' => 'eklou',
-            
+
             'profession' => 'developpeur',
             'email' => 'superadmin@gmail.com',
             'email_verified_at' => now(),
@@ -31,10 +31,10 @@ class AdminSeeder extends Seeder
 
 
         $user2 = User::create([
-            'name' => 'fidele',
-            
+            'name' => 'crepin',
+
             'profession' => 'developpeur',
-            'email' => 'beni@gmail.com',
+            'email' => 'crepin@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'),
             'type' => '',
@@ -45,10 +45,10 @@ class AdminSeeder extends Seeder
 
 
         $user3 = User::create([
-            'name' => 'dimitri',
-            
+            'name' => 'sawana',
+
             'profession' => 'medecin',
-            'email' => 'fidele@gmail.com',
+            'email' => 'sawana@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'),
             'type' => '',
@@ -60,18 +60,17 @@ class AdminSeeder extends Seeder
 
         $mentor_ = Mentor::create([
             'user_id' => $user2->id,
-            'annee_experience' => 15,
+            'annee_experience' => 30,
             'domaine_experience' => 'informatique',
+            'biographie' => 'je gnion e n ',
+        ]);
+
+
+        $mentor_2 = Mentor::create([
+            'user_id' => $user->id,
+            'annee_experience' => 20,
+            'domaine_experience' => 'marketing',
             'biographie' => 'djkfjkd djklf dlfkj',
-            ]);
-
-
-            $mentor_2 = Mentor::create([
-                'user_id' => $user->id,
-                'annee_experience' => 20,
-                'domaine_experience' => 'medecin',
-                'biographie' => 'djkfjkd djklf dlfkj',
-                ]);
-            
+        ]);
     }
 }

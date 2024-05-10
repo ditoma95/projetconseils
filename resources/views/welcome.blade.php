@@ -77,7 +77,7 @@
             <div>
                 {{-- @yield('content') --}}
 
-                <div class="gui-filter ">
+                {{-- <div class="gui-filter ">
 
 
                     <ul
@@ -105,7 +105,7 @@
 
 
                     </ul>
-                </div>
+                </div> --}}
 
 
 

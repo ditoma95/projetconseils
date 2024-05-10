@@ -23,27 +23,18 @@
                         id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab"
                         aria-controls="dashboard" aria-selected="false">Déja répondu</button>
                 </li>
-                {{-- <li class="me-2" role="presentation">
-                    <button
-                        class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                        id="settings-tab" data-tabs-target="#settings" type="button" role="tab"
-                        aria-controls="settings" aria-selected="false">Settings</button>
-                </li>
-                <li role="presentation">
-                    <button
-                        class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                        id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab"
-                        aria-controls="contacts" aria-selected="false">Contacts</button>
-                </li> --}}
+
             </ul>
         </div>
+
         <div id="default-tab-content">
             <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="profile" role="tabpanel"
                 aria-labelledby="profile-tab">
                 <section class="cards">
                     @foreach ($problems as $problem)
                         @if ($problem->conseils->count() == 0)
-                            <div class="card relative">
+                            <div class="card relative" data-drawer-target="drawer-bottom-example" data-drawer-show="drawer-bottom-example"
+                            data-drawer-placement="bottom" aria-controls="drawer-bottom-example">
                                 <img class="w-24 h-24 mb-5 rounded-full shadow-lg float-right"
                                     src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
                                     alt="Bonnie image" />
@@ -91,7 +82,8 @@
                 <section class="cards">
                     @foreach ($problems as $problem)
                         @if ($problem->conseils->count() != 0)
-                            <div class="card relative">
+                            <div class="card relative" data-drawer-target="drawer-bottom-example" data-drawer-show="drawer-bottom-example"
+                            data-drawer-placement="bottom" aria-controls="drawer-bottom-example">
                                 <img class="w-24 h-24 mb-5 rounded-full shadow-lg float-right"
                                     src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
                                     alt="Bonnie image" />
@@ -130,10 +122,50 @@
                         @endif
                     @endforeach
 
-
-
                 </section>
             </div>
+
+
+
+          
+
+            <!-- drawer component -->
+            <div id="drawer-bottom-example"
+                class="fixed bottom-0 left-0 right-0 z-40 w-full p-4 overflow-y-auto transition-transform bg-white dark:bg-gray-800 transform-none"
+                tabindex="-1" aria-labelledby="drawer-bottom-label">
+                <h5 id="drawer-bottom-label"
+                    class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"><svg
+                        class="w-4 h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                    </svg>Bottom drawer</h5>
+                <button type="button" data-drawer-hide="drawer-bottom-example" aria-controls="drawer-bottom-example"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close menu</span>
+                </button>
+                <p class="max-w-lg mb-6 text-sm text-gray-500 dark:text-gray-400">Supercharge your hiring by taking
+                    advantage of our <a href="#"
+                        class="text-blue-600 underline font-medium dark:text-blue-500 hover:no-underline">limited-time
+                        sale</a> for Flowbite Docs + Job Board. Unlimited access to over 190K top-ranked candidates and
+                    the #1 design job board.</p>
+                <a href="#"
+                    class="px-4 py-2 me-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Learn
+                    more</a>
+                <a href="#"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Get
+                    access <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </svg></a>
+            </div>
+
 
         </div>
 
@@ -154,6 +186,8 @@
         </div> --}}
 
         <!-- drawer component -->
+
+
 
 
 
