@@ -47,6 +47,8 @@ class RoleSeeder extends Seeder
         );
 
         Role::create(['name' => 'client'])->givePermissionTo([]);
+
+        Role::create(['name' => 'mentor'])->givePermissionTo([]);
         
     }
 }

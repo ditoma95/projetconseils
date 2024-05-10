@@ -1,13 +1,11 @@
 <?php
 
 use App\Http\Controllers\ConseilController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use Spatie\Permission\Middlewares\RoleMiddleware;
 use App\Http\Controllers\GoogleLoginController;
-use App\Http\Controllers\MentorController;
 use App\Http\Controllers\ProblemController;
 use App\Http\Controllers\SessionController;
+use App\Models\SessionMentorat;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +19,9 @@ use App\Http\Controllers\SessionController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $articles = SessionMentorat::all();
+
+    return view('welcome', ['articles' => $articles]);
 });
 
 Route::middleware([
@@ -33,7 +33,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
 
 Route::group(['middleware' => ['role:super-admin|admin']], function () {
     // Routes pour les permissions
@@ -72,8 +71,6 @@ Route::group(['middleware' => ['role:super-admin|admin']], function () {
     Route::delete('users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.destroy');
 });
 
-
-
 // GoogleLoginController redirect and callback urls
 Route::get('/login/google', [GoogleLoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('/login/google/callback', [GoogleLoginController::class, 'handleGoogleCallback']);
@@ -81,12 +78,8 @@ Route::get('/prob/index', [ProblemController::class, 'index'])->name('problem.in
 Route::post('/prob/index', [ProblemController::class, 'store'])->name('problem.store');
 Route::get('/prob/conseil/{id}', [ProblemController::class, 'show'])->name('problem.show');
 
-
-
 // Mentors routes
 Route::get('/problems/all', [ConseilController::class, 'index'])->name('mentor.problem.index');
 Route::post('/problems/all', [ConseilController::class, 'store'])->name('mentor.problem.store');
 Route::get('/mentor/session', [SessionController::class, 'index'])->name('mentor.sessions.index');
 Route::post('/mentor/session', [SessionController::class, 'store'])->name('mentor.sessions.store');
-
-

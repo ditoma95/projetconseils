@@ -131,83 +131,51 @@
                 <div class="gui-container-welcome  overflow-y-auto max-h-screen">
 
 
+
                     <div class="column left">
+                        @foreach ($articles as $article)
+                            <div
+                                class="relative max-w-sm bg-white border mt-10 border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
 
-                        <div
-                            class="relative max-w-sm bg-white border mt-10 border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                           
-                            <a href="" class="mt-1 mx-1 bg-gray-800 absolute top-0 right-0 rounded-lg p-1">
-                                <svg class=" w-[30px] h-[30px] text-gray-800 dark:text-white" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
-                            </svg>
-
-                            </a>
-
-                            <a href="#">
-                                <img class="rounded-t-lg"
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOBXGVxP257QOtzY57IA9ak1CguBj9JfYIrbpQxg8ZeQ&s"
-                                    alt="" />
-                            </a>
-                            <div class="p-5">
-                                <a href="#">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Domaine de l'éducation</h5>
-                                </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest
-                                    enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                                </p>
-                                <a href="#"
-                                    class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Read more
-                                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <a href="" class="mt-1 mx-1 bg-gray-800 absolute top-0 right-0 rounded-lg p-1">
+                                    <svg class=" w-[30px] h-[30px] text-gray-800 dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                            stroke-width="2"
+                                            d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
                                     </svg>
+
                                 </a>
-                            </div>
-                        </div>
 
-                        <div
-                            class="relative max-w-sm bg-white mt-10 mb-20 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                            <a href="" class=" mt-1 mx-1 bg-gray-800 absolute top-0 right-0 rounded-lg p-1">
-                                <svg class=" w-[30px] h-[30px] text-gray-800 dark:text-white" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
-                            </svg>
-
-                            </a>
-                            <a href="#">
-                                <img class="rounded-t-lg"
-                                    src="https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg"
-                                    alt="" />
-                            </a>
-                            <div class="p-5">
                                 <a href="#">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        Domaine de l'éducation</h5>
+                                    <img class="rounded-t-lg"
+                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOBXGVxP257QOtzY57IA9ak1CguBj9JfYIrbpQxg8ZeQ&s"
+                                        alt="" />
                                 </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest
-                                    enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                                </p>
-                                <a href="#"
-                                    class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Read more
-                                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
-                                </a>
+                                <div class="p-5">
+                                    <a href="#">
+                                        <h5
+                                            class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                            Domaine : {{ $article->titre}}</h5>
+                                    </a>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{$article ->contenu}}
+                                    </p>
+                                    <a href="#"
+                                        class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                       Lire plus
+                                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
+
+
 
                     </div>
 

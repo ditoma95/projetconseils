@@ -29,8 +29,37 @@ class AdminSeeder extends Seeder
         ]);
         $user->assignRole('super-admin');
 
-        $mentor = Mentor::create([
-            'user_id' => $user->id,
+
+        $user2 = User::create([
+            'name' => 'fidele',
+            
+            'profession' => 'developpeur',
+            'email' => 'beni@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('12345678'),
+            'type' => '',
+            'telephone' => '93996422',
+        ]);
+
+        $user2->assignRole('mentor');
+
+
+        $user3 = User::create([
+            'name' => 'dimitri',
+            
+            'profession' => 'medecin',
+            'email' => 'fidele@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('12345678'),
+            'type' => '',
+            'telephone' => '93996422',
+        ]);
+
+        $user3->assignRole('client');
+
+
+        $mentor_ = Mentor::create([
+            'user_id' => $user2->id,
             'annee_experience' => 15,
             'domaine_experience' => 'informatique',
             'biographie' => 'djkfjkd djklf dlfkj',
