@@ -134,6 +134,10 @@
 
                     <div class="column left">
                         @foreach ($articles as $article)
+
+                        @if ($article->is_publisher)
+                            
+                      
                             <div
                                 class="relative max-w-sm bg-white border mt-10 border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
 
@@ -173,6 +177,8 @@
                                     </a>
                                 </div>
                             </div>
+
+                            @endif
                         @endforeach
 
 
