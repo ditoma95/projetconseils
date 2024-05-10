@@ -15,6 +15,8 @@
     @apply md:w-full md:ml-0;
 } */
 
+
+
 .dimitrios{
     background: url('/public/img/cov.jpg') no-repeat center/cover fixed;
 }
@@ -107,12 +109,14 @@
   }
 /* column */
   .gui-container-welcome{
-    background-color: white;
-    border: 2px gray solid;
+    background-color: rgba(0, 0, 0, 0.589);
+    border: 2px rgba(128, 128, 128, 0.11) solid;
     width: 60%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    height: 100vh;
+   justify-content: center;
   }
 
 
@@ -120,6 +124,10 @@
 .column {
     flex: 1;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
 }
 
@@ -309,3 +317,9 @@ header {
   color: white;
 }
 
+
+
+.gui-filter{
+  position: absolute;
+  
+}

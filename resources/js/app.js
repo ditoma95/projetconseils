@@ -13,7 +13,89 @@ all_reponse_buttons.forEach(element => {
 });
 
 
-console.log(all_reponse_buttons);
+//Inspired by this pen: https://codepen.io/shannonmoeller/pen/PogPxXa
+//I added the jquery part 
+//Added the music as well
+//Further update of three.js will be included for moving asteroids
+//sound using js
+
+window.onload = function() {
+    // Alert the user to wait for the sound
+  
+
+//_______________________________
+//Audio part
+    
+    // Define the URL of the audio file to be played
+    /*
+    var url = 'https://dl.dropbox.com/scl/fi/zdt27kfcoodw8i1tf92mn/NASA_-What-does-space-sound-like_.mp3?rlkey=arectai2arxb5bgneii50b3xp&dl=1';
+
+    // Create an AudioContext object, which represents an audio-processing graph built from audio modules
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    var context = new AudioContext(); // Create an instance of AudioContext
+
+    // Create a buffer source node, which can play audio data
+    var source = context.createBufferSource();
+
+    // Connect the buffer source node to the destination, which represents the final destination of the audio signal (speakers)
+    source.connect(context.destination);
+
+    // Create an XMLHttpRequest object to retrieve the audio data from the URL
+    var request = new XMLHttpRequest();
+    request.open('GET', url, true); // Open a GET request to the specified URL asynchronously
+    request.responseType = 'arraybuffer'; // Set the response type to array buffer, as the response is an array of binary data
+
+    // Callback function executed when the request is loaded
+    request.onload = function() {
+        // Decode the audio data from the array buffer
+        context.decodeAudioData(request.response, 
+            // Success callback function
+            function(response) {
+                source.buffer = response; // Set the buffer of the buffer source node to the decoded audio data
+                source.start(0); // Start playing the audio immediately
+                source.loop = true; // Set the audio to loop
+            }, 
+            // Error callback function
+            function () { 
+                console.error('The request failed.'); 
+            }
+        );
+    };
+
+    // Send the request to retrieve the audio data
+    request.send();
+    */
+
+//______________________________________
+//jquery part 
+
+    // jQuery function to be executed when the DOM is fully loaded and ready to be manipulated
+    $(document).ready(function() {
+        // Function to generate a random number between min and max
+        function randomNum(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        // Function to create a star element
+        function createStar() {
+            const starSize = randomNum(1, 4); // Random size between 1 and 4 pixels
+            const star = $('<div class="star"></div>'); // Create a div element with the class "star"
+            // Set the CSS properties of the star
+            star.css({
+                width: starSize + 'px',
+                height: starSize + 'px',
+                left: randomNum(0, $(window).width()) + 'px', // Random left position within the window width
+                top: randomNum(0, $(window).height()) + 'px' // Random top position within the window height
+            });
+            $('body').append(star); // Append the star element to the body of the HTML document
+        }
+
+        // Create stars
+        for (let i = 0; i < 100; i++) {
+            createStar(); // Call the createStar function 100 times to create 100 stars
+        }
+    });
+}
 
 
 

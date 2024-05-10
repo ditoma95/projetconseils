@@ -8,7 +8,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="stylesheet" href="/build/tailwind.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    @vite(['resources/css/app.css', 'resources/css/back.css', 'resources/js/app.js'])
     <title>Let's do some warm-up !</title>
 </head>
 {{-- bars dimitrios --}}
@@ -20,7 +22,7 @@
                 class="flex flex-col px-4 mx-auto bg-gray-800 max-w-screen-3xl md:items-center md:justify-between md:flex-row md:px-6 lg:items-center lg:justify-between lg:flex-row lg:px-6 xl:items-center xl:justify-between xl:flex-row xl:px-6 sm:items-center sm:justify-between sm:flex-row sm:px-6">
                 <div class="flex flex-row items-center justify-between p-6">
                     <a href="#"
-                        class="text-lg italic font-semibold tracking-widest text-white uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Warm-Up</a>
+                        class="text-lg italic font-semibold tracking-widest text-white uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">GuidanceCønnłct</a>
                     <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
                         <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
                             <path x-show="!open" fill-rule="evenodd"
@@ -75,31 +77,176 @@
             <div>
                 {{-- @yield('content') --}}
 
-                <div class="gui-container-welcome">
+                <div class="gui-filter ">
+
+
+                    <ul
+                        class="w-48 text-sm font-medium mt-2 text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-500 dark:text-white ">
+                        <li class="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600">Filtrer
+                            par :
+                        </li>
+
+
+                        <div class="flex items-center p-2">
+                            <input id="link-checkbox" type="checkbox" value=""
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="link-checkbox"
+                                class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Santé
+                                    </label>
+                        </div>
+
+
+                        <div class="flex items-center p-2">
+                            <input id="link-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="link-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Infomatique</label>
+                        </div>
+                        
+                        
+                    </ul>
+                </div>
+
+
+
+                <div class="stars star1"></div>
+                <div class="stars star2"></div>
+                <div class="stars star3"></div>
+                <div class="stars star4"></div>
+                <div class="stars star5"></div>
+                <div class="stars star6"></div>
+                <div class="stars star7"></div>
+                <div class="stars star8"></div>
+                <div class="stars star9"></div>
+                <div class="stars star10"></div>
+                <div class="stars star11"></div>
+                <div class="stars star12"></div>
+                <div class="stars star13"></div>
+                <div class="stars star14"></div>
+                <div class="stars star15"></div>
+                <img id="moon" class="round"></img>
+
+
+
+                <div class="gui-container-welcome  overflow-y-auto max-h-screen">
 
 
                     <div class="column left">
-                        <div class="gui-container-card">
-                            
-                            <div class="cloud-box">
-                                <p class="message">Thank you for your support!</p>
+
+                        <div
+                            class="max-w-sm bg-white border mt-10 border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                            <a href="#">
+                                <img class="rounded-t-lg"
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOBXGVxP257QOtzY57IA9ak1CguBj9JfYIrbpQxg8ZeQ&s"
+                                    alt="" />
+                            </a>
+                            <div class="p-5">
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Domaine de l'éducation</h5>
+                                </a>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest
+                                    enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                                </p>
+                                <a href="#"
+                                    class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Read more
+                                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                    </svg>
+                                </a>
                             </div>
-                          
-                            <!-- Add more messages here -->
                         </div>
+
+                        <div
+                            class="max-w-sm bg-white mt-10 mb-20 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                            <a href="#">
+                                <img class="rounded-t-lg"
+                                    src="https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg"
+                                    alt="" />
+                            </a>
+                            <div class="p-5">
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Domaine de l'éducation</h5>
+                                </a>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest
+                                    enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                                </p>
+                                <a href="#"
+                                    class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Read more
+                                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
+
+
                     <div class="column right">
-                        <div class="gui-container-card">
-                            
-                            <div class="cloud-box">
-                                <p class="message">Thank you for your support
-                                    jkskdjfk dkfj skjsl djqdjg qmls sldkjs l sksjdfk jskldf kl!</p>
+
+                        <div
+                            class="max-w-sm bg-white border  border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                            <a href="#">
+                                <img class="rounded-t-lg"
+                                    src="https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg"
+                                    alt="" />
+                            </a>
+                            <div class="p-5">
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Domaine de la Santé</h5>
+                                </a>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest
+                                    enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                                </p>
+                                <a href="#"
+                                    class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Read more
+                                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                    </svg>
+                                </a>
                             </div>
-                           
-                            <!-- Add more messages here -->
                         </div>
+                        <div
+                            class="max-w-sm bg-white border border-gray-200 mt-10 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                            <a href="#">
+                                <img class="rounded-t-lg"
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOBXGVxP257QOtzY57IA9ak1CguBj9JfYIrbpQxg8ZeQ&s"
+                                    alt="" />
+                            </a>
+                            <div class="p-5">
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        Domaine de l'Inforamtique</h5>
+                                </a>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest
+                                    enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                                </p>
+                                <a href="#"
+                                    class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Read more
+                                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
-                    
+
+
+
                 </div>
 
 
