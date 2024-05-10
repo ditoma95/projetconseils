@@ -7,6 +7,7 @@ use Spatie\Permission\Middlewares\RoleMiddleware;
 use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\ProblemController;
+use App\Http\Controllers\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,4 +86,7 @@ Route::get('/prob/conseil/{id}', [ProblemController::class, 'show'])->name('prob
 // Mentors routes
 Route::get('/problems/all', [ConseilController::class, 'index'])->name('mentor.problem.index');
 Route::post('/problems/all', [ConseilController::class, 'store'])->name('mentor.problem.store');
+Route::get('/mentor/session', [SessionController::class, 'index'])->name('mentor.sessions.index');
+Route::post('/mentor/session', [SessionController::class, 'store'])->name('mentor.sessions.store');
+
 

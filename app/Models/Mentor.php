@@ -36,6 +36,12 @@ class Mentor extends Model
         return $this->hasMany(Conseil::class);
     }
 
+
+    public function sessions(): HasMany
+    {
+        return $this->hasMany(SessionMentorat::class);
+    }
+
     public function problems(): BelongsToMany
     {
         return $this->belongsToMany(Problem::class);

@@ -62,7 +62,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function conducteur(){
+    public function mentor(){
         return $this->hasOne(Mentor::class, 'mentor_id');
     }
 
