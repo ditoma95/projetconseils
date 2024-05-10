@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConseilController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Spatie\Permission\Middlewares\RoleMiddleware;
@@ -82,5 +83,6 @@ Route::get('/prob/conseil/{id}', [ProblemController::class, 'show'])->name('prob
 
 
 // Mentors routes
-Route::get('/problems/all', [MentorController::class, 'index'])->name('mentor.problem.index');
+Route::get('/problems/all', [ConseilController::class, 'index'])->name('mentor.problem.index');
+Route::post('/problems/all', [ConseilController::class, 'store'])->name('mentor.problem.store');
 

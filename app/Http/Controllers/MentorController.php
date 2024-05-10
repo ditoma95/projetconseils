@@ -16,8 +16,13 @@ class MentorController extends Controller
     {
 
         $mentor = Mentor::where('user_id', 1)->first();
+        $problems = $mentor->problems;
+        
 
-        return view("mentors.views_troubles");
+        return view("mentors.views_troubles",[
+            'problems' => $problems,
+            'mentor' => $mentor,
+        ]);
     }
 
     /**

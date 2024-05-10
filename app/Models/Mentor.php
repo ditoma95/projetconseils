@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -35,8 +36,8 @@ class Mentor extends Model
         return $this->hasMany(Conseil::class);
     }
 
-    public function problems(): HasMany
+    public function problems(): BelongsToMany
     {
-        return $this->hasMany(MentorProblem::class,"mentor_id");
+        return $this->belongsToMany(Problem::class);
     }
 }

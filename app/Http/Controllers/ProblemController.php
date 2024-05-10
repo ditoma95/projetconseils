@@ -80,13 +80,13 @@ class ProblemController extends Controller
     {
 
         $problem = Problem::find($id);
-        $mentor_problem = MentorProblem::where('problem_id', $id)->get();
+       
         // $mentors = Mentor::all();
 
       
         return view("problemes.view_conseil", [
             'problem' => $problem,
-            'mentor_problem' => $mentor_problem,
+            
             // 'mentors' => $mentors
         ]);
     }

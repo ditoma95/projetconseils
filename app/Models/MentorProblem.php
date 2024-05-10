@@ -15,7 +15,7 @@ class MentorProblem extends Model
         
     ];
 
-    protected $table = 'mentors_problemes';
+    protected $table = 'mentor_problem';
 
    
    

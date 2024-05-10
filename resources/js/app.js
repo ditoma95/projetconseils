@@ -1,3 +1,31 @@
+
+
+var input_problem = document.querySelector("#input_problem");
+var all_reponse_buttons = document.querySelectorAll(".gui-reponse-problem");
+
+all_reponse_buttons.forEach(element => {
+    element.addEventListener("click", function(e) {
+        
+        input_problem.value = e.target.dataset.id;
+
+        
+    })
+});
+
+
+console.log(all_reponse_buttons);
+
+
+
+
+
+
+
+
+
+
+
+
 import './bootstrap';
 document.addEventListener('alpine:init', () => {
     Alpine.data('statsByCategory', () => ({
@@ -167,3 +195,5 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+
