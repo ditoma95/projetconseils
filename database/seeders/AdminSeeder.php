@@ -64,6 +64,14 @@ class AdminSeeder extends Seeder
             'domaine_experience' => 'informatique',
             'biographie' => 'djkfjkd djklf dlfkj',
             ]);
+
+
+            $mentor_2 = Mentor::create([
+                'user_id' => $user->id,
+                'annee_experience' => 20,
+                'domaine_experience' => 'medecin',
+                'biographie' => 'djkfjkd djklf dlfkj',
+                ]);
             
     }
 }

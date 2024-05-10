@@ -13,7 +13,9 @@ class ConseilController extends Controller
     public function index()
     {
 
-        $mentor = Mentor::where('user_id', auth()->user()->id)->first();
+        try {
+            //code...
+            $mentor = Mentor::where('user_id', auth()->user()->id)->first();
         $problems = $mentor->problems;
         
 
@@ -21,6 +23,12 @@ class ConseilController extends Controller
             'problems' => $problems,
             'mentor' => $mentor,
         ]);
+        } catch (\Throwable $th) {
+            //throw $th;
+            return view("errors.404");
+        }
+
+        
     }
 
     public function store(Request $request)
