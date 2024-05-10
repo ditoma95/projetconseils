@@ -74,12 +74,20 @@ Route::group(['middleware' => ['role:super-admin|admin']], function () {
 // GoogleLoginController redirect and callback urls
 Route::get('/login/google', [GoogleLoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('/login/google/callback', [GoogleLoginController::class, 'handleGoogleCallback']);
-Route::get('/prob/index', [ProblemController::class, 'index'])->name('problem.index');
-Route::post('/prob/index', [ProblemController::class, 'store'])->name('problem.store');
-Route::get('/prob/conseil/{id}', [ProblemController::class, 'show'])->name('problem.show');
 
+
+
+Route::group(['middleware' => ['role:super-admin|admin|mentor|client']], function () {
+    Route::get('/prob/index', [ProblemController::class, 'index'])->name('problem.index');
+    Route::post('/prob/index', [ProblemController::class, 'store'])->name('problem.store');
+    Route::get('/prob/conseil/{id}', [ProblemController::class, 'show'])->name('problem.show');
+    Route::post('/conseil/avis', [ConseilController::class, 'avis'])->name('conseil.avis');
+});
 // Mentors routes
-Route::get('/problems/all', [ConseilController::class, 'index'])->name('mentor.problem.index');
-Route::post('/problems/all', [ConseilController::class, 'store'])->name('mentor.problem.store');
-Route::get('/mentor/session', [SessionController::class, 'index'])->name('mentor.sessions.index');
-Route::post('/mentor/session', [SessionController::class, 'store'])->name('mentor.sessions.store');
+
+Route::group(['middleware' => ['role:super-admin|admin|mentor']], function () {
+    Route::get('/problems/all', [ConseilController::class, 'index'])->name('mentor.problem.index');
+    Route::post('/problems/all', [ConseilController::class, 'store'])->name('mentor.problem.store');
+    Route::get('/mentor/session', [SessionController::class, 'index'])->name('mentor.sessions.index');
+    Route::post('/mentor/session', [SessionController::class, 'store'])->name('mentor.sessions.store');
+});

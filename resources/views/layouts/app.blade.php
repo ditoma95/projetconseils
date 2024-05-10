@@ -348,7 +348,7 @@
                     <!-- end::Submenu -->
                 </div>
                 @endif
-                
+
                 {{-- ---------------------------------------------------------------pages-------------------------------------------------------------------------------------------  --}}
                 <p class="px-6 mt-10 mb-2 text-xs text-gray-600 uppercase">Déconnexion</p>
 
@@ -747,7 +747,7 @@
             <div class="h-full mt-16 bg-gray-200">
                 <!-- start::Stats -->
 
-                <div class="w-full px-6 py-2 bg-gray-300">
+                <div class="w-full px-6 py-2 bg-gray-300" style="height: 100vh">
                     {{ $slot }}
                 </div>
             </div>

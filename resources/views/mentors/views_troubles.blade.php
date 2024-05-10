@@ -1,47 +1,144 @@
 <x-app-layout>
 
-    <main class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-600 rounded-lg">
-        <section class="cards">
 
-            @foreach ($problems as $problem)
-                <div class="card">
-                    <img class="w-24 h-24 mb-3 rounded-full shadow-lg float-right"
-                        src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
-                        alt="Bonnie image" />
+    <section class="border text-lg text-gray-600 fs-5 p-2 border-gray-200 mb-5 rounded-lg shadow">
+        <h2>La liste des problèmes</h2>
+    </section>
 
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                        {{ $problem->context }} ({{ $problem->user->name }}) </h5>
-
-                    <p class="font-normal text-gray-700 dark:text-gray-400">
-                        {{ $problem->contenu }}
-                    </p>
-
-                    <span
-                        class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded me-2 dark:bg-gray-700 dark:text-gray-400 border border-gray-500 ">
-                        <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z" />
-                        </svg>
-                        {{ formatDateToWords($problem->created_at) }}
-                    </span>
+    <main class="relative mx-auto max-w-7xl pb-5 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-600 rounded-lg">
 
 
-                    <a href="#" data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example"
-                        data-id="{{ $problem->id }}" data-drawer-placement="right" aria-controls="drawer-right-example"
-                        class="inline-flex font-medium items-center text-blue-600 hover:underline absolute bottom-0 right-0 mb-4 mr-4 gui-reponse-problem">Répondre
-                        <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
-                        </svg>
-                    </a>
 
-                </div>
-            @endforeach
+        <div class="mb-4 border-b border-gray-200  dark:border-gray-700">
+            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab"
+                data-tabs-toggle="#default-tab-content" role="tablist">
+                <li class="me-2" role="presentation">
+                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile"
+                        type="button" role="tab" aria-controls="profile" aria-selected="false">Sans
+                        réponse</button>
+                </li>
+                <li class="me-2" role="presentation">
+                    <button
+                        class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                        id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab"
+                        aria-controls="dashboard" aria-selected="false">Déja répondu</button>
+                </li>
+                {{-- <li class="me-2" role="presentation">
+                    <button
+                        class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                        id="settings-tab" data-tabs-target="#settings" type="button" role="tab"
+                        aria-controls="settings" aria-selected="false">Settings</button>
+                </li>
+                <li role="presentation">
+                    <button
+                        class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                        id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab"
+                        aria-controls="contacts" aria-selected="false">Contacts</button>
+                </li> --}}
+            </ul>
+        </div>
+        <div id="default-tab-content">
+            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="profile" role="tabpanel"
+                aria-labelledby="profile-tab">
+                <section class="cards">
+                    @foreach ($problems as $problem)
+                        @if ($problem->conseils->count() == 0)
+                            <div class="card relative">
+                                <img class="w-24 h-24 mb-5 rounded-full shadow-lg float-right"
+                                    src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+                                    alt="Bonnie image" />
+
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                                    {{ $problem->context }} ({{ $problem->user->name }}) </h5>
+
+                                <p class="font-normal text-gray-700 dark:text-gray-400">
+                                    {{ $problem->contenu }}
+                                </p>
+
+                                <span
+                                    class="bg-gray-100 absolute  border-blue-400 bottom-0  mb-4 mr-4 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded me-2 dark:bg-gray-700 dark:text-gray-400 border border-gray-500 ">
+                                    <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z" />
+                                    </svg>
+                                    {{ formatDateToWords($problem->created_at) }}
+                                </span>
 
 
-        </section>
+                                <a href="#" data-drawer-target="drawer-right-example"
+                                    data-drawer-show="drawer-right-example" data-id="{{ $problem->id }}"
+                                    data-drawer-placement="right" aria-controls="drawer-right-example"
+                                    class="inline-flex font-medium items-center  text-blue-600 hover:underline absolute mt-5 bottom-0 right-0 mb-4 mr-4 gui-reponse-problem">Répondre
+                                    <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                                    </svg>
+                                </a>
+
+                            </div>
+                        @endif
+                    @endforeach
+
+
+
+                </section>
+            </div>
+            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel"
+                aria-labelledby="dashboard-tab">
+                <section class="cards">
+                    @foreach ($problems as $problem)
+                        @if ($problem->conseils->count() != 0)
+                            <div class="card relative">
+                                <img class="w-24 h-24 mb-5 rounded-full shadow-lg float-right"
+                                    src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+                                    alt="Bonnie image" />
+
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                                    {{ $problem->context }} ({{ $problem->user->name }}) </h5>
+
+                                <p class="font-normal text-gray-700 dark:text-gray-400">
+                                    {{ $problem->contenu }}
+                                </p>
+
+                                <span
+                                    class="bg-gray-100 absolute bottom-0  mb-4 mr-4 text-gray-800 border-blue-400 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded me-2 dark:bg-gray-700 dark:text-gray-400 border border-gray-500 ">
+                                    <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z" />
+                                    </svg>
+                                    {{ formatDateToWords($problem->created_at) }}
+                                </span>
+
+
+                                <a href="#" data-drawer-target="drawer-right-example"
+                                    data-drawer-show="drawer-right-example" data-id="{{ $problem->id }}"
+                                    data-drawer-placement="right" aria-controls="drawer-right-example"
+                                    class="inline-flex font-medium items-center text-blue-600 hover:underline absolute mt-5 bottom-0 right-0 mb-4 mr-4 gui-reponse-problem">Répondre
+                                    <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                                    </svg>
+                                </a>
+
+                            </div>
+                        @endif
+                    @endforeach
+
+
+
+                </section>
+            </div>
+
+        </div>
+
+
+
 
 
 
@@ -82,12 +179,12 @@
                 </svg>
                 <span class="sr-only">Close menu</span>
             </button>
-            <form class="mb-6" method="POST" accept="{{route("mentor.problem.store")}}">
+            <form class="mb-6" method="POST" accept="{{ route('mentor.problem.store') }}">
                 @csrf
                 <input type="hidden" name="problem_id" id="input_problem">
                 <div class="mb-6">
-                    <label for="description"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Le contenu</label>
+                    <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Le
+                        contenu</label>
                     <textarea id="description" rows="4" name="reponse"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Contenu..." required></textarea>

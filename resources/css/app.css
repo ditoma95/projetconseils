@@ -153,6 +153,8 @@ header {
   justify-content: space-around;
   flex-wrap: wrap;
   margin: 20px 0;
+  
+ 
 }
 
 .card {
@@ -163,6 +165,7 @@ header {
   padding: 20px;
   margin: 10px;
   width: calc(33.33% - 20px);
+  
 }
 
 .form {

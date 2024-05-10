@@ -15,7 +15,7 @@ class ConseilController extends Controller
 
         try {
             //code...
-            $mentor = Mentor::where('user_id', auth()->user()->id)->first();
+        $mentor = Mentor::where('user_id', auth()->user()->id)->first();
         $problems = $mentor->problems;
         
 
@@ -31,6 +31,19 @@ class ConseilController extends Controller
         
     }
 
+    public function avis(Request $request){
+        $request->validate([
+            "conseil_id"=>"required",
+            "message"=>"required"
+        ]);
+
+        $conseil = Conseil::find($request->conseil_id);
+        $conseil->avis = $request->message;
+        $conseil->save();
+        
+        return back()->with("success","Avis envoyé avec success");
+    }
+
     public function store(Request $request)
     {
         
@@ -41,10 +54,12 @@ class ConseilController extends Controller
 
         //FIXE-ME: change r id en auth
         // $request->mentor_id = 1;
+        $mentor = Mentor::where('user_id', auth()->user()->id)->first();
+
         Conseil::create([
             'problem_id' => $request->problem_id,
             'reponse' => $request->reponse,
-            'mentor_id' =>1
+            'mentor_id' =>$mentor->id
         ]);
 
       

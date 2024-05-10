@@ -15,7 +15,7 @@ class MentorController extends Controller
     public function index()
     {
 
-        $mentor = Mentor::where('user_id', 1)->first();
+        $mentor = Mentor::where('user_id', auth()->user()->id)->first();
         $problems = $mentor->problems;
         
 

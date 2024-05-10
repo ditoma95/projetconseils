@@ -98,13 +98,10 @@ window.onload = function() {
 }
 
 
-
-
-
-
-
-
-
+setTimeout(() => {
+    var toast = document.getElementById("toast-success");
+    toast.remove();
+}, 5000);
 
 
 
