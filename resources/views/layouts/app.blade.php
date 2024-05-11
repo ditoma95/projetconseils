@@ -41,7 +41,7 @@
             <!-- start::Logo -->
             <div class="flex items-center justify-center h-16 bg-black bg-opacity-30">
                 <h1 class="text-lg font-bold tracking-widest text-gray-100 uppercase">
-                    APP CONSEILS
+                    Guidance Connect
                 </h1>
             </div>
             <!-- end::Logo -->
@@ -226,7 +226,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
                                 </svg>
-                                <span class="ml-3">Problèmes</span>
+                                <span class="ml-3">Mes conseils</span>
                             </div>
                             <svg class="w-3 h-3 transition duration-300" :class="linkActive ? 'rotate-90' : ''"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -294,7 +294,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
                             </svg>
-                            <span class="ml-3">Sessions</span>
+                            <span class="ml-3">Articles</span>
                         </div>
                         <svg class="w-3 h-3 transition duration-300" :class="linkActive ? 'rotate-90' : ''"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -313,7 +313,7 @@
                                 class="py-2 pl-10 pr-6 transition duration-200 cursor-pointer hover:bg-black hover:bg-opacity-30 hover:text-gray-100">
                                 <a href="{{ route('mentor.sessions.index') }}" class="flex items-center">
                                     <span class="mr-2 text-sm">&bull;</span>
-                                    <span class="overflow-ellipsis">Mes Sessions </span>
+                                    <span class="overflow-ellipsis">Ajouter un article </span>
                                 </a>
                             </li>
                         @endif
